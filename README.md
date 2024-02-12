@@ -1,16 +1,35 @@
-# initial_app
+# MKomov Studio Flutter example project
 
-A new Flutter project.
+Initial Flutter app configured for 3 environments: development, staging, production.
+
+Use this app as initial for new projects.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### 1. Configure appName
 
-A few resources to get you started if this is your first Flutter project:
+**iOS:** set appName for each environment (Xcode: Runner/Targets/Runner/Build Settings/APP_DISPLAY_NAME)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+to open Xcode use:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```sh
+open ios/Runner.xcworkspace
+```
+
+**Android:** android/app/build.gradle (defaultConfig/applicationId + namespace)
+
+### 2. Configure iOS bundle identifier
+
+Change bundle identifier for each environments
+
+Xcode: Runner-Targets-Runner-Build Settings-Packaging-Product Bundle Identifier
+
+### 3. Configure Android applicationId
+
+Change bundle identifier for each environments
+
+android/app/src/main/kotlin/com/example/new_app/MainActivity.kt
+
+### Configure appIcons
+
+### Configure Android signing config for the release build (android/app/build.gradle)

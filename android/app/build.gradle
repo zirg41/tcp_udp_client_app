@@ -23,7 +23,8 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.example.initial_app"
+    // TODO(1): Specify your own unique Application ID
+    namespace "com.mkomov.initApp"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
@@ -41,8 +42,8 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.initial_app"
+        // TODO(1): Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.mkomov.initApp"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
@@ -58,6 +59,30 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    flavorDimensions "default"
+  	productFlavors {
+        dev {
+            dimension "default"
+            // TODO: configure dev appName
+            resValue "string", "appName", "Dev Init App"
+            applicationIdSuffix ".dev"
+            versionNameSuffix = "-dev"
+        }
+        stage {
+            dimension "default"
+             // TODO: configure stage appName
+            resValue "string", "appName", "Stage Init App"
+            applicationIdSuffix ".stg"
+            versionNameSuffix = "-stg"
+        }
+        prod {
+            dimension "default"
+             // TODO: configure appName
+            resValue "string", "appName", "Init App"
+            applicationIdSuffix ""
+        }
+    }   
 }
 
 flutter {
