@@ -64,22 +64,22 @@ android {
   	productFlavors {
         dev {
             dimension "default"
-            // TODO: configure dev appName
-            resValue "string", "appName", "Dev Init App"
+            // TODO: configure dev app_name
+            resValue "string", "app_name", "Dev Init App"
             applicationIdSuffix ".dev"
             versionNameSuffix = "-dev"
         }
         stage {
             dimension "default"
-             // TODO: configure stage appName
-            resValue "string", "appName", "Stage Init App"
+             // TODO: configure stage app_name
+            resValue "string", "app_name", "Stage Init App"
             applicationIdSuffix ".stg"
             versionNameSuffix = "-stg"
         }
         prod {
             dimension "default"
-             // TODO: configure appName
-            resValue "string", "appName", "Init App"
+             // TODO: configure app_name
+            resValue "string", "app_name", "Init App"
             applicationIdSuffix ""
         }
     }   
