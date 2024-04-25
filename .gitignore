@@ -27,3 +27,13 @@ doc/api/
 .flutter-plugins-dependencies
 
 .vscode/settings.json
+
+# FVM Version Cache
+.fvm/flutter_sdk
+.fvm/versions
+.fvm/release
+.fvm/version
+
+**/*.fvmrc
+
+**/*.DS_store
