@@ -220,7 +220,7 @@ linter:
     sort_constructors_first: false
     sort_unnamed_constructors_first: false
     tighten_type_of_initializing_formals: true
-    type_annotate_public_apis: true
+    type_annotate_public_apis: false
     type_init_formals: true
     type_literal_in_constant_pattern: true
     unawaited_futures: true

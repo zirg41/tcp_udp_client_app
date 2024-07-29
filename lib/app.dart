@@ -22,12 +22,13 @@ class App extends StatelessWidget {
                   getIt<Environment>().name,
                 ),
                 FutureBuilder(
-                    future: getIt.getAsync<DeviceInfoService>(),
-                    builder: (context, snapshot) {
-                      return Text(
-                        "${snapshot.data?.deviceId}",
-                      );
-                    }),
+                  future: getIt.getAsync<DeviceInfoService>(),
+                  builder: (context, snapshot) {
+                    return Text(
+                      "${snapshot.data?.deviceId}",
+                    );
+                  },
+                ),
               ],
             ),
           ),

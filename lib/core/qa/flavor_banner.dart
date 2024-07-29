@@ -3,7 +3,9 @@ import "dart:io";
 import "package:flutter/material.dart";
 import "package:initial_app/core/config/environment.dart";
 import "package:initial_app/core/config/injectable.dart";
+import "package:initial_app/core/qa/developer_page/developer_page.dart";
 import "package:initial_app/core/utils/device_info_service.dart";
+import "package:initial_app/core/utils/logger.dart";
 
 class FlavorBanner extends StatelessWidget {
   final Widget child;
@@ -68,18 +70,17 @@ class _DeviceInfoDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog.adaptive(
+    return AlertDialog(
       clipBehavior: Clip.hardEdge,
-      content: _getContent(context),
+      content: _buildDeviceInfoContent(context),
       actions: <Widget>[
         TextButton(
           onPressed: () {
-            // TODO(faiz): go to dev page
-            // Navigator.of(context).push(
-            //   MaterialPageRoute<dynamic>(
-            //     builder: (BuildContext context) => const DeveloperPage(),
-            //   ),
-            // );
+            Navigator.of(context).push(
+              MaterialPageRoute<dynamic>(
+                builder: (context) => const DeveloperPage(),
+              ),
+            );
           },
           child: const Text(
             "Developer page",
@@ -88,29 +89,14 @@ class _DeviceInfoDialog extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            // TODO(faiz): go to dev page
-            // Navigator.of(context).push(
-            //   MaterialPageRoute<dynamic>(
-            //     builder: (BuildContext context) => const LogScreen(),
-            //   ),
-            // );
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: talkerScreen,
+              ),
+            );
           },
           child: const Text(
             "Log page",
-            style: TextStyle(color: Colors.black87),
-          ),
-        ),
-        TextButton(
-          onPressed: () {
-            // TODO(faiz): go to chucker
-            // Navigator.of(context).push(
-            //   MaterialPageRoute<dynamic>(
-            //     builder: (BuildContext context) => const ErrorLogScreen(),
-            //   ),
-            // );
-          },
-          child: const Text(
-            "HTTP requests/responses",
             style: TextStyle(color: Colors.black87),
           ),
         ),
@@ -118,7 +104,7 @@ class _DeviceInfoDialog extends StatelessWidget {
     );
   }
 
-  Widget _getContent(BuildContext context) {
+  Widget _buildDeviceInfoContent(BuildContext context) {
     final DeviceInfoService deviceInfo = getIt<DeviceInfoService>();
     return SingleChildScrollView(
       child: Column(
