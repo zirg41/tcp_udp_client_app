@@ -37,3 +37,5 @@ doc/api/
 **/*.fvmrc
 
 **/*.DS_store
+
+lib/core/config/environments.dart
