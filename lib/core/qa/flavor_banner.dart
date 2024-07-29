@@ -1,7 +1,7 @@
 import "dart:io";
 
 import "package:flutter/material.dart";
-import "package:initial_app/core/config/environment_entity.dart";
+import "package:initial_app/core/config/environment.dart";
 import "package:initial_app/core/config/injectable.dart";
 import "package:initial_app/core/utils/device_info_service.dart";
 

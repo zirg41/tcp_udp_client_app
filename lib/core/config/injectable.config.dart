@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i1;
-import 'package:initial_app/core/config/environment_entity.dart' as _i4;
+import 'package:initial_app/core/config/environment.dart' as _i4;
 import 'package:initial_app/core/utils/device_info_service.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 
