@@ -6,15 +6,47 @@
             "request": "launch",
             "type": "dart",
             "program": "lib/main_dev.dart",
+            "flutterMode": "debug",
             "args": [
                 "--flavor",
                 "dev",
-                "--target",
-                "lib/main_dev.dart"
             ]
         },
         {
+            "name": "DEV_P",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "program": "lib/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev",
+            ],
+        },
+        {
+            "name": "DEV_R",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev",
+            ],
+        },
+        {
             "name": "STAGE",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main_stage.dart",
+            "args": [
+                "--flavor",
+                "stage",
+            ]
+        },
+        {
+            "name": "STAGE_P",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
@@ -22,12 +54,33 @@
             "args": [
                 "--flavor",
                 "stage",
-                "--target",
-                "lib/main_stage.dart"
+            ]
+        },
+        {
+            "name": "STAGE_R",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/main_stage.dart",
+            "args": [
+                "--flavor",
+                "stage",
             ]
         },
         {
             "name": "PROD",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main_prod.dart",
+            "args": [
+                "--flavor",
+                "prod",
+       
+            ]
+        },
+        {
+            "name": "PROD_P",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
@@ -35,8 +88,19 @@
             "args": [
                 "--flavor",
                 "prod",
-                "--target",
-                "lib/main_prod.dart"
+       
+            ]
+        },
+        {
+            "name": "PROD_R",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/main_prod.dart",
+            "args": [
+                "--flavor",
+                "prod",
+       
             ]
         },
     ]
