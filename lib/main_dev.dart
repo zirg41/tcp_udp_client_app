@@ -14,7 +14,7 @@ void main() {
       runApp(const App());
     },
     (error, stack) {
-      logger.critical("[main] $error");
+      logger.critical("[main zone] $error\n$stack");
     },
   );
 }
