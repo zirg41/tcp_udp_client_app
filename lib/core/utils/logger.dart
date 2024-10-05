@@ -7,6 +7,9 @@ import "package:talker_flutter/talker_flutter.dart";
 
 final logger = TalkerFlutter.init(
   observer: getIt<Environment>().isProd ? SentryTalkerObserver() : null,
+  logger: TalkerLogger(
+    formatter: const CustomLoggerFormatter(),
+  ),
   settings: TalkerSettings(
     colors: {
       TalkerLogType.info: AnsiPen()..cyan(),
@@ -15,6 +18,22 @@ final logger = TalkerFlutter.init(
     },
   ),
 );
+
+class CustomLoggerFormatter implements LoggerFormatter {
+  const CustomLoggerFormatter();
+
+  @override
+  String fmt(LogDetails details, TalkerLoggerSettings settings) {
+    final msg = details.message?.toString() ?? "";
+    if (!settings.enableColors) {
+      return msg;
+    }
+    var lines = msg.split("\n");
+    lines = lines.map((e) => details.pen.write(e)).toList();
+    final coloredMsg = lines.join("\n");
+    return coloredMsg;
+  }
+}
 
 final talkerDioLogger = TalkerDioLogger(
   talker: logger,
