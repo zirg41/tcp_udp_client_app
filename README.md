@@ -12,4 +12,4 @@ TCP Client page allows to:
 
 TCP Client uses `Socket` class from `dart:io`
 
-[![IMG-183494-E26-F97-1.jpg](https://i.postimg.cc/vTSMXWZY/IMG-183494-E26-F97-1.jpg)](https://postimg.cc/D4stw4GH)
+<img src="screenshots/screenshoot_tcp.jpeg" alt="drawing" width="300"/>
