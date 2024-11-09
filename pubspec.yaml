@@ -1,5 +1,5 @@
-name: initial_app
-description: A new Flutter project.
+name: tcp_udp_client_app
+description: TCP/UDP Client Flutter Application
 publish_to: "none"
 
 version: 0.0.1+1

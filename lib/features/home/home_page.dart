@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
-import "package:initial_app/core/config/environment.dart";
-import "package:initial_app/core/config/injectable.dart";
-import "package:initial_app/core/utils/device_info_service.dart";
-import "package:initial_app/core/utils/extensions/build_context_x.dart";
+import "package:tcp_udp_client_app/core/config/environment.dart";
+import "package:tcp_udp_client_app/core/config/injectable.dart";
+import "package:tcp_udp_client_app/core/utils/device_info_service.dart";
+import "package:tcp_udp_client_app/core/utils/extensions/build_context_x.dart";
 
 class HomePage extends StatelessWidget {
   const HomePage({

@@ -1,9 +1,9 @@
 // ignore_for_file: avoid_equals_and_hash_code_on_mutable_classes
 
 import "package:flutter/material.dart";
-import "package:initial_app/core/config/env_slug.dart";
 import "package:injectable/injectable.dart" hide Environment;
 import "package:pub_semver/pub_semver.dart";
+import "package:tcp_udp_client_app/core/config/env_slug.dart";
 
 part "environments.dart";
 

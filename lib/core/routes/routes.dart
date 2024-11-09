@@ -1,7 +1,7 @@
 import "package:go_router/go_router.dart";
-import "package:initial_app/core/utils/logger.dart";
-import "package:initial_app/features/home/home_page.dart";
 import "package:talker_flutter/talker_flutter.dart";
+import "package:tcp_udp_client_app/core/utils/logger.dart";
+import "package:tcp_udp_client_app/features/home/home_page.dart";
 
 abstract class AppRoutes {
   static const String initial = "/";

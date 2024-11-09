@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
-import "package:initial_app/core/config/environment.dart";
-import "package:initial_app/core/config/injectable.dart";
+import "package:tcp_udp_client_app/core/config/environment.dart";
+import "package:tcp_udp_client_app/core/config/injectable.dart";
 import "package:talker_bloc_logger/talker_bloc_logger_settings.dart";
 import "package:talker_dio_logger/talker_dio_logger.dart";
 import "package:talker_flutter/talker_flutter.dart";

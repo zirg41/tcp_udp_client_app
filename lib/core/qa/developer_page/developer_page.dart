@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:initial_app/core/qa/developer_page/pages/ui_kit_screen.dart";
+import "package:tcp_udp_client_app/core/qa/developer_page/pages/ui_kit_screen.dart";
 
 class DeveloperPage extends StatelessWidget {
   const DeveloperPage({super.key});

@@ -1,10 +1,10 @@
 import "dart:async";
 
 import "package:flutter/material.dart";
-import "package:initial_app/app.dart";
-import "package:initial_app/core/config/environment.dart";
-import "package:initial_app/core/config/injectable.dart";
-import "package:initial_app/core/utils/logger.dart";
+import "package:tcp_udp_client_app/app.dart";
+import "package:tcp_udp_client_app/core/config/environment.dart";
+import "package:tcp_udp_client_app/core/config/injectable.dart";
+import "package:tcp_udp_client_app/core/utils/logger.dart";
 
 void main() {
   runZonedGuarded(

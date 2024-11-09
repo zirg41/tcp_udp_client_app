@@ -1,11 +1,11 @@
 import "dart:io";
 
 import "package:flutter/material.dart";
-import "package:initial_app/core/config/environment.dart";
-import "package:initial_app/core/config/injectable.dart";
-import "package:initial_app/core/qa/developer_page/developer_page.dart";
-import "package:initial_app/core/utils/device_info_service.dart";
-import "package:initial_app/core/utils/logger.dart";
+import "package:tcp_udp_client_app/core/config/environment.dart";
+import "package:tcp_udp_client_app/core/config/injectable.dart";
+import "package:tcp_udp_client_app/core/qa/developer_page/developer_page.dart";
+import "package:tcp_udp_client_app/core/utils/device_info_service.dart";
+import "package:tcp_udp_client_app/core/utils/logger.dart";
 
 class FlavorBanner extends StatelessWidget {
   final Widget child;
