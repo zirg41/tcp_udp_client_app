@@ -1,4 +1,5 @@
 {
     "@@locale": "ru",
-    "appName": "Шаблонный проект приложения"
+    "appName": "Шаблонный проект приложения",
+    "tcpPageName": "TCP Client"
 }

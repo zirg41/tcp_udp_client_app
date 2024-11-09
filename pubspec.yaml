@@ -11,6 +11,7 @@ dependencies:
   android_id: ^0.3.6
   cupertino_icons: ^1.0.2
   device_info_plus: ^10.1.0
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
