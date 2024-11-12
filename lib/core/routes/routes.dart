@@ -1,7 +1,10 @@
+import "package:flutter_bloc/flutter_bloc.dart";
 import "package:go_router/go_router.dart";
 import "package:talker_flutter/talker_flutter.dart";
 import "package:tcp_udp_client_app/core/utils/logger.dart";
 import "package:tcp_udp_client_app/features/home/home_page.dart";
+import "package:tcp_udp_client_app/features/tcp_client/bloc/tcp_cubit.dart";
+import "package:tcp_udp_client_app/features/tcp_client/domain/connection_mode.dart";
 import "package:tcp_udp_client_app/features/tcp_client/presentation/tcp_page.dart";
 
 abstract class AppRoutes {
@@ -22,7 +25,10 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: AppRoutes.tcp,
-      builder: (context, state) => const TcpPage(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => TcpCubit(ConnectionMode.tcp),
+        child: const TcpPage(),
+      ),
     ),
   ],
 );

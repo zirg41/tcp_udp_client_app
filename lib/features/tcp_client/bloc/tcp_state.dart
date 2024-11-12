@@ -22,7 +22,6 @@ final class TcpState extends Equatable {
         messages: [],
         isConnected: false,
         isConnecting: false,
-        error: null,
       );
 
   @override
@@ -31,7 +30,7 @@ final class TcpState extends Equatable {
 
   TcpState copyWith({
     String? host,
-    String? error,
+    ValueGetter<String?>? error,
     int? port,
     List<Message>? messages,
     bool? isConnected,
@@ -39,7 +38,7 @@ final class TcpState extends Equatable {
   }) {
     return TcpState(
       host: host ?? this.host,
-      error: error ?? this.error,
+      error: error != null ? error() : this.error,
       port: port ?? this.port,
       messages: messages ?? this.messages,
       isConnected: isConnected ?? this.isConnected,
