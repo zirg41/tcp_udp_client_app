@@ -1,8 +1,6 @@
 import "package:flutter/material.dart";
-import "package:tcp_udp_client_app/core/config/environment.dart";
-import "package:tcp_udp_client_app/core/config/injectable.dart";
-import "package:tcp_udp_client_app/core/utils/device_info_service.dart";
-import "package:tcp_udp_client_app/core/utils/extensions/build_context_x.dart";
+import "package:go_router/go_router.dart";
+import "package:tcp_udp_client_app/core/routes/routes.dart";
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -12,20 +10,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(context.strings.appName)),
+      appBar: AppBar(title: Text("Home Page")),
       body: Center(
         child: Column(
           children: [
-            Text(
-              getIt<Environment>().name,
+            TextButton(
+              onPressed: () => context.go(AppRoutes.tcp),
+              child: Text("Open TCP Page"),
             ),
-            FutureBuilder(
-              future: getIt.getAsync<DeviceInfoService>(),
-              builder: (context, snapshot) {
-                return Text(
-                  "${snapshot.data?.deviceId}",
-                );
-              },
+            TextButton(
+              onPressed: () => context.go(AppRoutes.udp),
+              child: Text("Open UDP Page"),
             ),
           ],
         ),

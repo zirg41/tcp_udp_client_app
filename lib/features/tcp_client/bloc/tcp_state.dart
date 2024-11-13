@@ -1,7 +1,7 @@
 part of "tcp_cubit.dart";
 
 final class TcpState extends Equatable {
-  final String host;
+  final InternetAddress host;
   final String? error;
   final int port;
   final List<Message> messages;
@@ -16,20 +16,26 @@ final class TcpState extends Equatable {
       required this.isConnecting,
       this.error});
 
-  factory TcpState.empty() => const TcpState(
-        host: "192.168.0.64",
+  factory TcpState.empty() => TcpState(
+        host: InternetAddress("192.168.0.64"),
         port: 8084,
-        messages: [],
+        messages: const [],
         isConnected: false,
         isConnecting: false,
       );
 
   @override
-  List<Object?> get props =>
-      [host, error, port, messages, isConnected, isConnecting];
+  List<Object?> get props => [
+        host,
+        error,
+        port,
+        messages,
+        isConnected,
+        isConnecting,
+      ];
 
   TcpState copyWith({
-    String? host,
+    InternetAddress? host,
     ValueGetter<String?>? error,
     int? port,
     List<Message>? messages,

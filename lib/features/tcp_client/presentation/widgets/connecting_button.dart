@@ -1,37 +1,51 @@
 import "package:flutter/material.dart";
-import "package:flutter_bloc/flutter_bloc.dart";
-import "package:tcp_udp_client_app/features/tcp_client/bloc/tcp_cubit.dart";
 
 class ConnectingButton extends StatelessWidget {
-  const ConnectingButton({super.key});
+  final VoidCallback onConnect;
+  final bool isConnecting;
+  final bool isConnected;
+  final String connectedAddress;
+  final int connectedPort;
+
+  const ConnectingButton({
+    required this.onConnect,
+    required this.isConnecting,
+    required this.isConnected,
+    required this.connectedAddress,
+    required this.connectedPort,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TcpCubit, TcpState>(
-      builder: (context, state) {
-        return Row(
-          children: [
-            FilledButton(
-              onPressed: () {
-                context.read<TcpCubit>().connect();
-              },
-              child: const Text("connect"),
-            ),
-            const SizedBox(width: 8),
-            if (!state.isConnecting)
+    return Row(
+      children: [
+        FilledButton(
+          onPressed: onConnect,
+          child: const Text("connect"),
+        ),
+        const SizedBox(width: 8),
+        if (!isConnecting)
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
               Text(
-                "Is connected: ${state.isConnected}",
+                "Is connected: $isConnected",
               ),
-            if (state.isConnecting) ...[
-              const Text(
-                "Connecting",
-              ),
-              const SizedBox(width: 8),
-              const CircularProgressIndicator.adaptive()
-            ]
-          ],
-        );
-      },
+              if (isConnected)
+                Text(
+                  "Socket: $connectedAddress:$connectedPort",
+                ),
+            ],
+          ),
+        if (isConnecting) ...[
+          const Text(
+            "Connecting",
+          ),
+          const SizedBox(width: 8),
+          const CircularProgressIndicator.adaptive()
+        ]
+      ],
     );
   }
 }

@@ -1,9 +1,12 @@
+import "dart:io";
+
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 
 import "package:tcp_udp_client_app/features/tcp_client/bloc/tcp_cubit.dart";
 import "package:tcp_udp_client_app/features/tcp_client/presentation/widgets/app_error_widget.dart";
 import "package:tcp_udp_client_app/features/tcp_client/presentation/widgets/connecting_button.dart";
+import "package:tcp_udp_client_app/features/tcp_client/presentation/widgets/host_port_text_fields.dart";
 import "package:tcp_udp_client_app/features/tcp_client/presentation/widgets/message_text_field.dart";
 import "package:tcp_udp_client_app/features/tcp_client/presentation/widgets/messages_list_view.dart";
 
@@ -25,7 +28,7 @@ class _TcpPageState extends State<TcpPage> {
   void initState() {
     super.initState();
     final state = context.read<TcpCubit>().state;
-    hostController.text = state.host;
+    hostController.text = state.host.address;
     portController.text = state.port.toString();
   }
 
@@ -43,48 +46,26 @@ class _TcpPageState extends State<TcpPage> {
               ),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Flexible(
-                        flex: 2,
-                        child: TextField(
-                          controller: hostController,
-                          decoration: const InputDecoration(
-                            labelText: "HOST",
-                          ),
-                          onTapOutside: (event) {
-                            FocusManager.instance.primaryFocus?.unfocus();
-                          },
-                          onEditingComplete: () {
-                            context
-                                .read<TcpCubit>()
-                                .changeHost(hostController.text);
-                            FocusManager.instance.primaryFocus?.unfocus();
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Flexible(
-                        child: TextField(
-                          controller: portController,
-                          decoration: const InputDecoration(
-                            labelText: "PORT",
-                          ),
-                          onTapOutside: (event) {
-                            FocusManager.instance.primaryFocus?.unfocus();
-                          },
-                          onEditingComplete: () {
-                            context
-                                .read<TcpCubit>()
-                                .changePort(portController.text);
-                            FocusManager.instance.primaryFocus?.unfocus();
-                          },
-                        ),
-                      ),
-                    ],
+                  HostPortTextFields(
+                    hostController: hostController,
+                    onEditingHostComplete: () {
+                      context.read<TcpCubit>().changeHost(
+                            InternetAddress(hostController.text),
+                          );
+                    },
+                    portController: portController,
+                    onEditingPortComplete: () {
+                      context.read<TcpCubit>().changePort(portController.text);
+                    },
                   ),
                   const SizedBox(height: 8),
-                  const ConnectingButton(),
+                  ConnectingButton(
+                    connectedAddress: state.host.address,
+                    connectedPort: state.port,
+                    isConnected: state.isConnected,
+                    isConnecting: state.isConnecting,
+                    onConnect: () => context.read<TcpCubit>().connect(),
+                  ),
                   const SizedBox(height: 8),
                   if (state.error != null) AppErrorWidget(state.error!),
                   const SizedBox(height: 8),
