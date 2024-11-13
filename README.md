@@ -24,6 +24,8 @@ UDP Client page allows to:
 * send message to the connected socket
 * listen messages from the socket
 
+UDP Client uses `RawDatagramSocket` class from `dart:io`
+
 <img src="screenshots/screenshoot_udp.jpeg" alt="drawing" width="300"/>
 
 ## Note
